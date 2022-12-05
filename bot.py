@@ -3,12 +3,11 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardBut
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from token import *
 from xml.etree import ElementTree
 
-text = ElementTree.parse('text.xml')
-root = text.getroot()
-bot = Bot(token)
+text = ElementTree.parse('text.xml').getroot()
+token = ElementTree.parse('token.xml').getroot()
+bot = Bot(token.text)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 kb_base = [
