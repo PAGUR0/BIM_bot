@@ -3,14 +3,17 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardBut
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from token import token
+from token import *
+from xml.etree import ElementTree
 
+text = ElementTree.parse('text.xml')
+root = text.getroot()
 bot = Bot(token)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 kb_base = [
     [
-        KeyboardButton('Чаты'),
+        KeyboardButton(root[0].text),
         KeyboardButton('Поиск исполнителя'),
         KeyboardButton('Профиль')
     ],
