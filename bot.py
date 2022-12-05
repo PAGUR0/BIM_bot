@@ -5,14 +5,14 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from xml.etree import ElementTree
 
-text = ElementTree.parse('text.xml').getroot()
+texts = ElementTree.parse('text.xml').getroot()
 token = ElementTree.parse('token.xml').getroot()
 bot = Bot(token.text)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 kb_base = [
     [
-        KeyboardButton(root[0].text),
+        KeyboardButton(texts[0].text),
         KeyboardButton('Поиск исполнителя'),
         KeyboardButton('Профиль')
     ],
