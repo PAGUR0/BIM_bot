@@ -103,9 +103,9 @@ async def meetap(message: types.Message):
     markup = InlineKeyboardMarkup(row_width=2)
     kb_what = InlineKeyboardButton(text[0][6][2][0][0].text, callback_data='what')
     kb_purpose = InlineKeyboardButton(text[0][6][2][1][0].text, callback_data='purpose')
-    kb_data = InlineKeyboardButton(text[0][6][2][2][0].text, url=text[0][6][2][2][1].text)
-    kb_principles = InlineKeyboardButton(text[0][6][2][3][0].text, callback_data='principles')
-    kb_meeting = InlineKeyboardButton(text[0][6][2][4][0].text, callback_data='meeting')
+    kb_principles = InlineKeyboardButton(text[0][6][2][2][0].text, callback_data='principles')
+    kb_meeting = InlineKeyboardButton(text[0][6][2][3][0].text, callback_data='meeting')
+    kb_data = InlineKeyboardButton(text[0][6][2][4][0].text, url=text[0][6][2][4][1].text)
     markup.add(kb_what, kb_purpose, kb_principles, kb_meeting, kb_data)
     await message.answer(text[0][6][1].text, reply_markup=markup)
 
@@ -117,7 +117,7 @@ async def what(callback: types.CallbackQuery):
     kb_thank = types.InlineKeyboardButton('Всё. Спасибо!', callback_data='thank')
     kb_next = types.InlineKeyboardButton('Далее', callback_data='purpose')
     markup_BIM.add(kb_next, kb_thank)
-    await callback.message.answer(text[0][6][2][0][0].text, reply_markup=markup_BIM)
+    await callback.message.answer(text[0][6][2][0][1].text, reply_markup=markup_BIM)
     await callback.message.delete()
 
 
@@ -129,7 +129,7 @@ async def purpose(callback: types.CallbackQuery):
     kb_next = types.InlineKeyboardButton('Далее', callback_data='principles')
     kb_back = types.InlineKeyboardButton('Назад', callback_data='what')
     markup_BIM.add(kb_back, kb_next, kb_thank)
-    await callback.message.answer(text[0][6][2][0][1].text, reply_markup=markup_BIM)
+    await callback.message.answer(text[0][6][2][1][1].text, reply_markup=markup_BIM)
     await callback.message.delete()
 
 
@@ -141,7 +141,7 @@ async def principles(callback: types.CallbackQuery):
     kb_next = types.InlineKeyboardButton('Далее', callback_data='meeting')
     kb_back = types.InlineKeyboardButton('Назад', callback_data='purpose')
     markup_BIM.add(kb_back, kb_next, kb_thank)
-    await callback.message.answer(text[0][6][2][0][2].text, reply_markup=markup_BIM)
+    await callback.message.answer(text[0][6][2][2][1].text, reply_markup=markup_BIM)
     await callback.message.delete()
 
 
@@ -152,7 +152,7 @@ async def meeting(callback: types.CallbackQuery):
     kb_thank = types.InlineKeyboardButton('Всё. Спасибо!', callback_data='thank')
     kb_back = types.InlineKeyboardButton('Назад', callback_data='principles')
     markup_BIM.add(kb_back, kb_thank)
-    await callback.message.answer(text[0][6][2][0][3].text, reply_markup=markup_BIM)
+    await callback.message.answer(text[0][6][2][3][1].text, reply_markup=markup_BIM)
     await callback.message.delete()
 
 
