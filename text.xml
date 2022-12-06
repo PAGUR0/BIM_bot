@@ -151,6 +151,11 @@
                     <ссылка>https://calendar.google.com/calendar/u/0?cid=MWM1OWNiY2M3YTkyNWNmYmFiZjIyMzllYWVlZTNhZGYxMDhjNjRiMjgyZmE0YWFhOTFhYmNmZTEwMjkzOTY4M0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t</ссылка>
                 </кнопка>
             </клавиатура>
+            <кнопки>
+                <кнопка id="1">Далее</кнопка>
+                <кнопка id="2">Назад</кнопка>
+                <кнопка id="3">Всё. Спасибо</кнопка>
+            </кнопки>
         </кнопка>
     </клавиатура>
     <start>
